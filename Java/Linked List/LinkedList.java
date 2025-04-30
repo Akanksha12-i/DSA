@@ -29,6 +29,26 @@ public class LinkedList {
      // return list;
     }
 
+    public void inserAtPos(LinkedList l,int val,int pos){
+          Node t=l.head;
+          Node new_node=new Node(val);
+          if(pos>1){
+        int i=1;
+        while(i!=pos-1){
+           t=t.next;
+           i++;
+        }
+        new_node.next=t.next;
+       t.next=new_node;
+    }else if(pos==1){
+
+        new_node.next=l.head;
+        l.head=new_node;
+    }
+
+
+    }
+
     public void display(LinkedList list){
         Node curr=list.head;
         System.out.print("Linked List:");
@@ -49,11 +69,12 @@ public class LinkedList {
         l.display(l);
 
         LinkedList l1=new LinkedList();
+        int a[]={1,2,3,4,5};
+        for(int i=0;i<a.length;i++){
+            l1.insert(l1,a[i]);
+        }
+        l1.inserAtPos(l1, 100, 1);
         
-        l1.insert(l1,55);
-        l1.insert(l1,6);
-        l1.insert(l1,7);
- 
          l1.display(l1);
     }
 }
